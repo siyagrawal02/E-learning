@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Upload Notes</title>
+	<style>
+    *{
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+	.container {
+        margin: 50px auto;
+        max-width: 600px;
+        padding: 20px;
+        border: 1px solid #ccc;
+      }
+      
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+      
+      label {
+        margin-bottom: 10px;
+      }
+      
+      input[type="text"],
+      input[type="file"] {
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+      }
+      
+      button[type="submit"] {
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      
+      button[type="submit"]:hover {
+        background-color: #45a049;
+      }
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Upload Your Notes</h1>
+		<form id="upload-form">
+			<label for="subject">Subject:</label>
+			<input type="text" id="subject" name="subject"><br>
+
+			<label for="notes">Notes:</label>
+			<input type="file" id="notes" name="notes"><br>
+
+			<button type="submit" value="Submit">Submit</button>
+		</form>
+
+		<div id="thank-you" style="display:none;">
+			<h2>Thank You!</h2>
+			<p>Your notes have been successfully uploaded.</p>
+		</div>
+	</div>
+
+
+	<script>
+        const form = document.querySelector('#upload-form');
+        const subjectInput = document.querySelector('#subject');
+        const notesInput = document.querySelector('#notes');
+        const thankYou = document.querySelector('#thank-you');
+        
+        form.addEventListener('submit', e => {
+          e.preventDefault();
+        
+          const formData = new FormData();
+          formData.append('subject', subjectInput.value);
+        
+          const notesFile = notesInput.files[0];
+          if (notesFile.type === 'application/pdf') {
+            formData.append('notes', notesFile);
+        
+            fetch('/upload-notes', {
+              method: 'POST',
+              body: formData
+            })
+            .then(response => {
+              if (response.ok) {
+                form.style.display = 'none';
+                thankYou.style.display = 'block';
+              } else {
+                alert('Error uploading notes!');
+              }
+            })
+            .catch(error => {
+              alert('Error uploading notes!');
+              console.error(error);
+            });
+          } else {
+            alert('Please select a PDF file.');
+          }
+        });
+        
+        // Send the notes to the admin portal via email
+        function sendNotesToAdminPortal(emailAddress) {
+          const notesSubject = subjectInput.value;
+          const notesFile = notesInput.files[0];
+          
+          const formData = new FormData();
+          formData.append('subject', notesSubject);
+          formData.append('notes', notesFile);
+          formData.append('email', emailAddress);
+          
+          fetch('/send-notes', {
+            method: 'POST',
+            body: formData
+          })
+          .then(response => {
+            if (response.ok) {
+              alert('Notes sent to admin portal successfully!');
+            } else {
+              alert('Error sending notes to admin portal!');
+            }
+          })
+          .catch(error => {
+            alert('Error sending notes to admin portal!');
+            console.error(error);
+          });
+        }
+    </script>
+</body>
+</html>

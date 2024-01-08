@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>E-Learning Home Page</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="static/css/home.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<style>
+	.fa {
+		font-size: 50px;
+		margin-bottom: 10px;
+	  }
+	  
+	* {
+		box-sizing: border-box;
+	}
+	
+	body {
+		font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+		margin: 0;
+		padding: 0;
+	}
+	
+	header {
+		background-color:    #1F2937;
+		color: #fff;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 10px 20px;
+	}
+	
+	nav ul {
+		list-style: none;
+		display: flex;
+	}
+	
+	nav li {
+		margin: 0 10px;
+	}
+	
+	nav a {
+		color: #fff;
+		text-decoration:none;
+		font-size: 20px;
+	}
+	
+	nav a:hover {
+	text-decoration: underline;
+	}
+	
+	main {
+	margin: 20px;
+	}
+	
+	#hero {
+		background:url('/static/images/bg.webp');
+	padding: 50px;
+	text-align: center;
+	background-repeat:no-repeat;
+	background-size:cover;
+	color:white;
+	}
+	
+	#courses {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	margin-top: 30px;
+	}
+	
+	.course {
+	flex-basis: calc(25% - 20px);
+	background-color: #f2f2f2;
+	padding: 20px;
+	margin-bottom: 20px;
+	}
+	.login-btn{
+
+		background-color: white;
+		color: black;
+		padding: 10px 20px;
+		border-radius: 5px;
+		margin-top: 20px;
+		text-decoration: none;
+		font-weight:bold;
+	}
+	.course img {
+	width: 100%;
+	}
+	
+	.btn {
+	display: inline-block;
+	background-color:  #1F2937;
+	color: #fff;
+	padding: 10px 20px;
+	border-radius: 5px;
+	margin-top: 20px;
+	text-decoration: none;
+	}
+	
+	.btn:hover {
+	background-color: #444;
+	}
+	
+	footer {
+	background-color:  #1F2937;
+	color: #fff;
+	padding: 20px;
+	text-align: center;
+	}
+	.nav1{
+		display: inline-flex;
+		margin-top: 15px;
+		margin-right: 20px;
+	}
+	
+</style>
+<body>
+	<header>
+		<h1>E-Learning Website</h1>
+		<nav>
+			<ul>
+				<div class="nav1">
+				<li><a href="#">Home</a></li>
+				<li><a href="#">Courses</a></li>
+				<li><a href="{% url 'quiz_list' id %}">Quizzes</a></li>
+				<li><a href="{% url 'summary' %}">Summaries</a><li> 
+					
+			
+				
+			</div>
+				<div class="nav2">	<a href="{% url 'dashboard' id %}"><i class="fa fa-user"></i></a></div>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<section id="hero" >
+			<h2>Welcome to E-Learning Website</h2>
+			<p>Our mission is to provide high-quality online education to students all over the world. Our courses are designed by experts in the field and are constantly updated to keep up with the latest developments.</p>
+			
+		</section>
+
+		<h3>Popular Courses</h3>
+		<section id="courses">
+			<div class="course">
+				<h4>Introduction to HTML</h4>
+				<p>HTML (Hypertext Markup Language) is a standard markup language used to create and structure content on the web, allowing users to add text, images, videos, and other multimedia elements to web pages.</p>
+				<a href="{% url 'course1' id %}" class="btn">Learn More</a>
+			</div>
+			<div class="course">
+				<h4>Object oriented programming: Java</h4>
+				<p>Object-oriented programming (OOP) in Java is a programming paradigm that emphasizes the use of objects, classes, and methods to organize and manipulate data, allowing for encapsulation, inheritance, and polymorphism in order to create more modular and reusable code.</p>
+				<a href="{% url 'course2' id %}" class="btn">Learn More</a>
+			</div>
+			<div class="course">
+				<h4>Basics of Javascript</h4>
+				<p>JavaScript (JS) is a high-level, interpreted programming language used to create dynamic and interactive web pages and web applications, allowing users to manipulate the Document Object Model (DOM) and add interactivity and functionality to their websites, such as form validation, event handling, and animation.</p>
+				<a href="{% url 'course3' id %}" class="btn">Learn More</a>
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		<p>&copy; 2023 E-Learning Website. All rights reserved.</p>
+	</footer>
+</body>
+</html>

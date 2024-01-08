@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+        
+        font-size: 16px;
+        color: #333;
+        background-color: #f5f5f5;
+        text-align: center;
+        padding: 20px;
+        margin: 0;
+      }
+      
+      h1 {
+        font-size: 36px;
+        margin-top: 0;
+      }
+      
+      section#courses {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+      }
+      
+      .course {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin: 20px;
+        padding: 20px;
+        width: 300px;
+        transition: transform 0.3s ease-in-out;
+      }
+      
+      .course:hover {
+        transform: scale(1.05);
+      }
+      
+      .course h2 {
+        font-size: 24px;
+        margin-top: 0;
+      }
+      
+      .course a {
+        display: block;
+        margin: 20px auto;
+      }
+      
+      .icon-img {
+        max-width: 200px;
+        height: auto;
+      }
+      
+</style>
+
+<body>
+    <center><h1>ADMIN PORTAL</h1></center>
+    <section id="courses">
+        <div class="course">
+            <center><h2>NOTES UPLOADED</h2></center>
+        <a href="{% url 'my_view' %}">{% load static %}<img src="{% static 'images/notes.jpeg' %}" class="icon-img"alt="Course 1"></a>
+
+            
+        </div>
+        <div class="course">
+            <center><h2>ADD QUIZ</h2></center>
+          <a href="{% url 'add' %}">{% load static %}<img src="{% static 'images/add quiz.png' %}" class="icon-img" alt="Course 1"></a>
+        
+        </div>
+        <div class="course">
+            <center><h2>VIEW RESULTS</h2></center>
+          <a href="{% url 'quiz_list_admin' %}">{% load static %}<img src="{% static 'images/view result.jpg' %}" class="icon-img" alt="Course 1"></a>
+        
+        </div>
+    </section>
+</body>
+
+</html>

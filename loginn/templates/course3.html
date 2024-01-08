@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Course Title - E-Learning Site</title>
+    <style>
+        /* Body */
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #F6F8FA;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Header */
+  header {
+    background-color: #1F2937;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 36px;
+    letter-spacing: 2px;
+  }
+  
+  /* Main */
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .course-info {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+  }
+  
+  h2 {
+    font-size: 28px;
+    letter-spacing: 1px;
+    margin-top: 20px;
+  }
+  
+  p {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-top: 20px;
+  }
+  
+  li {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .enrollment {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  
+  form label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 18px;
+  }
+  
+ 
+  form input[type="submit"] {
+    background-color: #1F2937;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    width:200px;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  form input[type="submit"]:hover {
+    background-color: #0D1424;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #1F2937;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    margin-top: 20px;
+  }
+  
+  footer p {
+    margin: 0;
+    font-size: 18px;
+  }
+  body p{
+    font-size: 20px;
+  }
+  #last-line{
+    font-size: 25px;
+    font-weight: bold;
+  }
+  #html{
+    margin-left: 28%;
+    width: 350px;
+  }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <h1>Basics of Javascript</h1>
+    </header>
+    <main>
+        <section class="course-info">
+            <h2>About the Course</h2>
+            <p>JavaScript is a high-level, dynamic, and interpreted programming language that is widely used for building interactive web pages and applications. It is a client-side scripting language, meaning that it runs on the user's web browser, rather than on a web server.
+            <br><br>{% load static %}<img id="html"src="{% static 'images/js.png' %}" height="240" width="90" alt=""></p>
+            <p>JavaScript syntax is similar to that of other programming languages, such as C++ and Java. It supports various data types, including numbers, strings, arrays, and objects, and provides a wide range of built-in functions and methods for manipulating these data types <br><br>
+
+                JavaScript can be used for a variety of purposes, including form validation, creating animations and interactive elements, handling user input, and communicating with web servers. It has become an essential tool for web developers and is a critical component of modern web development..</p>
+
+            <p>By the end of this course, you will have a firm grasp on JavaScript and how it is used to create and structure
+                web content. You will be able to create your own JavaScript documents from scratch and will have the knowledge
+                required to begin building your own websites.
+<br><br>
+                This course is a great way to get started with JavaScript whether you are a complete beginner or have some
+                experience with web development. You will be able to apply what you learn to real-world situations and
+                start building your own websites in no time thanks to hands-on exercises and real-world examples. </p>
+
+            <p id="last-line">So,
+                what are you holding out for? Enroll in this course right now to begin your journey into the world of
+                JavaScript!</p>
+            <ul>
+                <li>Duration: 15 weeks</li>
+                <li>Level: Intermediate</li>
+               
+            </ul>
+        </section>
+        <section class="enrollment">
+            <h2>Enroll Now</h2>
+            <form action="{% url 'enroll' %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" value="Js" name="sub">
+                <input type="hidden" value="{{ id }}" name="id">
+                <input type="submit" value="Enroll">
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 E-Learning Site</p>
+    </footer>
+</body>
+
+</html>

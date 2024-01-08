@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Course Title - E-Learning Site</title>
+    <style>
+        /* Body */
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #F6F8FA;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Header */
+  header {
+    background-color: #1F2937;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 36px;
+    letter-spacing: 2px;
+  }
+  
+  /* Main */
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .course-info {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+  }
+  
+  h2 {
+    font-size: 28px;
+    letter-spacing: 1px;
+    margin-top: 20px;
+  }
+  
+  p {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-top: 20px;
+  }
+  
+  li {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .enrollment {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  
+  form label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 18px;
+  }
+  
+ 
+  form input[type="submit"] {
+    background-color: #1F2937;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    width:200px;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  form input[type="submit"]:hover {
+    background-color: #0D1424;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #1F2937;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    margin-top: 20px;
+  }
+  
+  footer p {
+    margin: 0;
+    font-size: 18px;
+  }
+  body p{
+    font-size: 20px;
+  }
+  #last-line{
+    font-size: 25px;
+    font-weight: bold;
+  }
+  #html{
+    margin-left: 28%;
+    width: 350px;
+  }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <h1>Introduction to HTML</h1>
+    </header>
+    <main>
+        <section class="course-info">
+            <h2>About the Course</h2>
+            <p>The foundation of every website you see on the internet is HTML, or Hypertext Markup Language. It is the
+                standard markup language for creating and structuring web content. If you want to build websites or work
+                in web development, learning HTML is a must-have skill.
+                This introductory course is intended to give you a strong foundation in HTML. You will learn how to
+                create and structure HTML documents, which will include headings, paragraphs, lists, links, and images.
+                You'll also discover how to use basic HTML tags like
+                < div>, < span>, < table>, < form> and to create more complex layouts and structures.
+            <br><br>{% load static %}<img id="html"src="{% static 'images/html.png' %}" alt=""></p>
+            <p>The course is designed to be simple to follow and comprehend. It begins with an overview of HTML,
+                including its history and the significance of semantic markup. Then you'll learn about HTML's
+                fundamental elements, such as headings, paragraphs, and lists, and how to use them to create
+                well-structured content. <br><br>
+
+                You will learn how to add links and images to your HTML documents, as well as how to create tables and
+                forms, as you progress through the course. You'll also learn why accessibility is important in web
+                development and how to use HTML to make your content more accessible to all users.</p>
+
+            <p>By the end of this course, you will have a firm grasp on HTML and how it is used to create and structure
+                web content. You will be able to create your own HTML documents from scratch and will have the knowledge
+                required to begin building your own websites.
+<br><br>
+                This course is a great way to get started with HTML whether you are a complete beginner or have some
+                experience with web development. You will be able to apply what you learn to real-world situations and
+                start building your own websites in no time thanks to hands-on exercises and real-world examples. </p>
+
+            <p id="last-line">So,
+                what are you holding out for? Enroll in this course right now to begin your journey into the world of
+                HTML!</p>
+            <ul>
+                <li>Duration: 10 weeks</li>
+                <li>Level: Intermediate</li>
+               
+            </ul>
+        </section>
+        <section class="enrollment">
+            <h2>Enroll Now</h2>
+            <form action="{% url 'enroll' %}" method="POST">
+              
+                <input type="hidden" value="HTML" name="sub">
+                <input type="hidden" value="{{ id }}" name="id">
+                <input type="submit" value="Enroll">
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 E-Learning Site</p>
+    </footer>
+</body>
+
+</html>
